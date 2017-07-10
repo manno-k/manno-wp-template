@@ -1,3 +1,9 @@
 .DS_Store
 node_modules/
 .git
+vendor/
+composer.phar
+npm-debug.log
+behat.yml
+screen_shots/*.png
+screen_shots/all_page/*.png
