@@ -1,7 +1,7 @@
 #!/bin/bash
 shopt -s expand_aliases
 source ~/.bash_profile
-
+npm install
 ## 日本語化
 wocker wp core language install ja
 wocker wp core language activate ja
@@ -55,6 +55,15 @@ read ANSWER2
 
 case $ANSWER2 in
     "" | "Y" | "y" | "yes" | "Yes" | "YES" ) wocker theme-test ja && echo "Theme Test Data install Done!!";;
+    * ) echo "init Done!";;
+esac
+
+echo "behatをインストールしますか?  [Y/N]"
+read ANSWER3
+
+case $ANSWER3 in
+    "" | "Y" | "y" | "yes" | "Yes" | "YES" )
+    cd behat && npm install && npm run init &&  echo "behat install Done!!";;
     * ) echo "init Done!";;
 esac
 
