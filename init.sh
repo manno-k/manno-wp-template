@@ -49,15 +49,6 @@ case $ANSWER1 in
     * ) echo "plugin Done!";;
 esac
 
-## テーマユニットテストデータのインストール
-echo "テーマユニットテストデータをインストールしますか?  [Y/N]"
-read ANSWER2
-
-case $ANSWER2 in
-    "" | "Y" | "y" | "yes" | "Yes" | "YES" ) wocker theme-test ja && echo "Theme Test Data install Done!!";;
-    * ) echo "init Done!";;
-esac
-
 echo "behatをインストールしますか?  [Y/N]"
 read ANSWER3
 

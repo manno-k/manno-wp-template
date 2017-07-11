@@ -1,12 +1,6 @@
 # manno-wp-template
-## インストール方法  
-
-```
-$ git@github.com:manno-k/manno-wp-template.git  
-$ sh init.sh
-```
-
-## 概要  
+##Twentyseventeenの子テーマテンプレートです。
+### 概要  
 gulp install  
 wordpress 日本語化  
 プラグインインストール&アクティベート  
@@ -14,10 +8,19 @@ wordpress 日本語化
 behatインストール  
 その他もろもろ  
 
-## 注意  
+
+### インストール方法  
+
+```
+$ git@github.com:manno-k/manno-wp-template.git  
+$ sh init.sh
+```
+
+### その他  
 もしテストデータがインストールされない場合  
 
 ```
+$ vagrant ssh
 $ wocker theme-test ja  
 ```
 
