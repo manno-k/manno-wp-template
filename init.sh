@@ -5,6 +5,8 @@ npm install
 ## 日本語化
 wocker wp core language install ja
 wocker wp core language activate ja
+## 不用なThemeフォルダの削除
+wocker wp theme delete twentyfifteen twentysixteen
 
 ## いろいろなプラグインをインストール
 echo "いろいろなプラグインをインストールしますか?  [Y/N]"
