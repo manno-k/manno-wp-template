@@ -2,9 +2,14 @@
  Theme Name:mytheme
  Template:twentyseventeen
 */
+// bootstrap
 
+@import "bootstrap/bootstrap";
+@import "bootstrap/bootstrap-grid";
+@import "bootstrap/bootstrap-reboot";
+
+// mytheme
 @import "variable";
-@import "bootstrap";
 @import "mixin";
 @import "header";
 @import "footer";
