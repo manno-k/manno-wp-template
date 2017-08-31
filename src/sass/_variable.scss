@@ -4,54 +4,10 @@ $black: #000000;
 .bg-white{
   background:$white!important;
 }
+body {
+// 游ゴシック優先指定
+font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif!important;
 
-.lg-none{
-  display: block;
-  @include media-breakpoint-down(lg){
-    display: none;
-  }
-}
-.lg-block{
-  display: none;
-  @include media-breakpoint-down(lg){
-    display: block;
-  }
-}
-
-.md-none{
-  display: block;
-  @include media-breakpoint-down(md){
-    display: none;
-  }
-}
-.md-block{
-  display: none;
-  @include media-breakpoint-down(md){
-    display: block;
-  }
-}
-.sm-none{
-  display: block;
-  @include media-breakpoint-down(sm){
-    display: none;
-  }
-}
-.sm-block{
-  display: none;
-  @include media-breakpoint-down(sm){
-    display: block;
-  }
-}
-
-.xs-none{
-  display: block;
-  @include media-breakpoint-down(xs){
-    display: none;
-  }
-}
-.xs-block{
-  display: none;
-  @include media-breakpoint-down(xs){
-    display: block;
-  }
+// Noto sans優先指定
+// font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Noto Sans Japanese", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, Meiryo, sans-serif!important;
 }
