@@ -15,6 +15,7 @@ var streamqueue = require('streamqueue');
 var rename = require('gulp-rename');
 var svgmin = require('gulp-svgmin');
 var flexibility = require('postcss-flexibility');
+var sourcemaps =require('gulp-sourcemaps');
 
 
 // JSファイルを圧縮
@@ -31,15 +32,8 @@ gulp.task('uglify', function () {
 // JSファイルをひとまとめに
 gulp.task("concat", function () {
     var files = [
-        'js/scroll_addClass.min.js',
-        'js/toggleClass_nav.min.js',
-        'js/hensai.min.js',
-        'js/Gmap.min.js',
-        'js/inquiry.min.js',
-        'js/jquery.cookie.min.js',
-        'js/errorImage.min.js',
-        // 'js/add_favorite.min.js',
-        // 'js/room_history.min.js'
+      // JSファイル名を指定
+        'js/myjs.js',
     ]
     return gulp.src(files)
         .pipe(plumber())
@@ -130,6 +124,15 @@ gulp.task('svgmin', function () {
         .pipe(gulp.dest('./img/'));
 });
 
+// sourcemapを作成
+gulp.task('sourcemap', function () {
+  return gulp.src('src/sass/**/*.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('/'));
+});
+
 
 // ブラウザをリロード
 gulp.task('browser-sync', function () {
@@ -150,6 +153,7 @@ gulp.task('default', ['browser-sync'], function () {
             'scss',
             'combineMq',
             'cssmin',
+            'sourcemap',
             'bs-reload'
         );
     });
@@ -161,43 +165,3 @@ gulp.task('default', ['browser-sync'], function () {
         );
     });
 });
-
-// vccw用設定
-
-gulp.task('browser-sync2', function () {
-    browserSync({
-        proxy: "vccw.dev"
-    });
-});
-
-gulp.task('vccw', ['browser-sync2'], function () {
-    gulp.watch("./**/*.html", ['bs-reload']);
-    gulp.watch("./**/*.php", ['bs-reload']);
-    gulp.watch("src/sass/**/*.scss", function () {
-        return runSequence(
-            'scss',
-            'combineMq',
-            'cssmin',
-            'bs-reload'
-        );
-    });
-    gulp.watch("src/js/**/*.js", function () {
-        return runSequence(
-            'uglify',
-            'concat',
-            'bs-reload'
-        );
-    });
-});
-
-// ビルドタスク
-gulp.task('build', function () {
-    return runSequence(
-        'scss',
-        'combineMq',
-        'cssmin',
-        'concat',
-        'uglify',
-        'bs-reload'
-    );
-})
