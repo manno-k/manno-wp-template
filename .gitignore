@@ -7,3 +7,4 @@ npm-debug.log
 behat.yml
 screen_shots/*.png
 screen_shots/all_page/*.png
+package-lock.json
