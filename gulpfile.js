@@ -1,3 +1,7 @@
+/*
+ Destinations
+ */
+
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var cssmin = require('gulp-cssmin');
@@ -15,33 +19,59 @@ var streamqueue = require('streamqueue');
 var rename = require('gulp-rename');
 var svgmin = require('gulp-svgmin');
 var flexibility = require('postcss-flexibility');
-var sourcemaps =require('gulp-sourcemaps');
+var sourcemaps = require('gulp-sourcemaps');
+var sassLint = require('gulp-sass-lint');
 
+/*
+ File Destinations
+ */
 
-// JSファイルを圧縮
+var path = {
+    'root': './',
+    // images
+    'imageDest': 'assets/img/',
+    'imagePath': 'src/img/',
+    // JS
+    'jsDest': 'assets/js/',
+    'jsPath': 'src/js/',
+    'jsConcat': ['' , ''],
+    // Sass
+    'sassPass': 'src/sass/',
+    // Css
+    'cssDest': './',
+    // browser sync
+    'host': '',
+    'https': true,
+}
+
+var sassLintConf = {
+    configFile: '.sass-lint.yml'
+};
+
+/*
+ Js Tasks
+ */
+
 gulp.task('uglify', function () {
-    var eachscript = gulp.src('src/js/*.js')
+    var eachscript = gulp.src(path.jsPath + '**/*.js')
         .pipe(plumber())
         .pipe(uglify())
         .pipe(rename({
             extname: '.min.js'
         }))
-        .pipe(gulp.dest('js'));
+        .pipe(gulp.dest(path.jsDest));
 });
 
-// JSファイルをひとまとめに
 gulp.task("concat", function () {
-    var files = [
-      // JSファイル名を指定
-        'js/myjs.js',
-    ]
-    return gulp.src(files)
+    return gulp.src(path.jsConcat)
         .pipe(plumber())
         .pipe(concat("minified.js"))
-        .pipe(gulp.dest("./js"));
+        .pipe(gulp.dest(path.jsDest));
 });
 
-// sassコンパイル
+/*
+ Sass Tasks
+ */
 
 gulp.task('scss', function () {
     var processors = [
@@ -55,44 +85,46 @@ gulp.task('scss', function () {
             }
         })
     ];
-    return gulp.src('src/sass/**/*.scss')
+    return gulp.src(path.sassPass + '**/*.scss')
         .pipe(plumber({
             errorHandler: function (err) {
                 console.log(err.messageFormatted);
                 this.emit('end');
             }
         }))
+        .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss(processors))
-        // js-flexの付与
-        //  .pipe(postcss([flexibility]))
-        .pipe(gulp.dest('./'))
+        // テーマフォルダのルートにsourcemapを生成する
+        .pipe(sourcemaps.write(path.root))
+        .pipe(gulp.dest(path.root))
 });
+
 
 // メディアクエリを最適化
 gulp.task('combineMq', function () {
-    return gulp.src('./style.css')
+    return gulp.src('./style.scss')
         .pipe(combineMq({
             beautify: false
         }))
-        .pipe(gulp.dest('./'));
+        .pipe(gulp.dest(path.root));
 });
 
-// // js-flexの付与
-// gulp.task('css', function() {
-//   return gulp.src('./style.css')
-//     .pipe(postcss([flexibility]))
-//     .pipe(gulp.dest('./'));
-// });
 
 // cssの圧縮
 gulp.task('cssmin', function () {
-    gulp.src('./style.css')
+    gulp.src('./style.scss')
         .pipe(cssmin())
-        .pipe(gulp.dest('./'));
+        .pipe(rename({
+            extname: '.min.css'
+        }))
+        .pipe(gulp.dest(path.root));
 });
-// 画像を圧縮
+
+/*
+ Image Tasks
+ */
 
 gulp.task('image', function () {
     return runSequence(
@@ -101,7 +133,7 @@ gulp.task('image', function () {
     );
 });
 gulp.task('image-opt', function () {
-    return gulp.src('src/img/**/*')
+    return gulp.src(path.imagePath + '**/*')
         .pipe(plumber())
         .pipe(image({
             pngquant: true,
@@ -115,53 +147,57 @@ gulp.task('image-opt', function () {
             svgo: false,
             concurrent: 10,
         }))
-        .pipe(gulp.dest('img/'));
+        .pipe(gulp.dest(path.imageDest));
 });
 
 gulp.task('svgmin', function () {
-    gulp.src('src/img/**/*.svg')
+    gulp.src(path.imagePath + '**/*.svg')
         .pipe(svgmin())
-        .pipe(gulp.dest('./img/'));
+        .pipe(gulp.dest(path.imageDest));
 });
 
-// sourcemapを作成
-gulp.task('sourcemap', function () {
-  return gulp.src('src/sass/**/*.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./'));
-});
+/*
+ Browser Sync Tasks
+ */
 
-
-// ブラウザをリロード
 gulp.task('browser-sync', function () {
     browserSync({
-        proxy: "wocker.dev"
+        proxy: path.host,
+        https: path.https
     });
-
 });
 gulp.task('bs-reload', function () {
     return browserSync.reload();
 });
 
 gulp.task('default', ['browser-sync'], function () {
-    gulp.watch("./**/*.html", ['bs-reload']);
-    gulp.watch("./**/*.php", ['bs-reload']);
-    gulp.watch("src/sass/**/*.scss", function () {
+    gulp.watch(path.root + "**/*.html", ['bs-reload']);
+    gulp.watch(path.root + "**/*.php", ['bs-reload']);
+    gulp.watch(path.sassPass + "**/*.scss", function () {
         return runSequence(
             'scss',
             'combineMq',
             'cssmin',
-            'sourcemap',
             'bs-reload'
         );
     });
-    gulp.watch("src/js/**/*.js", function () {
+    gulp.watch(path.jsPath + "**/*.js", function () {
         return runSequence(
             'uglify',
             'concat',
             'bs-reload'
         );
     });
+});
+
+
+//---------------------------------------------------------------------------
+// Test Tasks
+//---------------------------------------------------------------------------
+
+gulp.task('test-sass', function () {
+    return gulp.src([path.sassPass + '**/*.scss', '!' + path.sassPass + 'style.scss', "!" + path.sassPass + 'foundation/bootstrap/**/*.scss', "!" + path.sassPass + 'foundation/fontawesome/**/*.scss'])
+        .pipe(sassLint())
+        .pipe(sassLint.format())
+        .pipe(sassLint.failOnError())
 });

@@ -1,27 +1,18 @@
-# manno-wp-template
-##Twentyseventeenの子テーマテンプレートです。
-### 概要  
-gulp install  
-wordpress 日本語化  
-プラグインインストール&アクティベート  
-テーマテストデータインストール  
-behatインストール  
-その他もろもろ  
+# _sを使用したwordpressテンプレートです。
+## 使用方法
 
+git clone してsh init.shして終わり。
 
-### インストール方法  
+## Gulp
 
-```
-$ git@github.com:manno-k/manno-wp-template.git  
-$ sh init.sh
-```
+gulpfile.jsの File Destinationsに様々なpathを書いていく事ができます。
+brawsersyncのアドレスなどをここで設定して下さい。
 
-### その他  
-もしテストデータがインストールされない場合  
+## Sass
+CSS設計にFLOCSSを採用。
+style.scssで、Bootstarp/FontAwesomeが読み込まれるようになってます。
+必要なければコメントアウトして下さい。
 
-```
-$ vagrant ssh
-$ wocker theme-test ja  
-```
+## init.sh
 
-でインストールされます。
+sh init.shでwordpressに様々な処理を行ないます。

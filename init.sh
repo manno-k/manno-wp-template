@@ -3,10 +3,10 @@ shopt -s expand_aliases
 source ~/.bash_profile
 npm install
 ## 日本語化
-wocker wp core language install ja
-wocker wp core language activate ja
+wp core language install ja
+wp core language activate ja
 ## 不用なThemeフォルダの削除
-wocker wp theme delete twentyfifteen twentysixteen
+wp theme delete twentyfifteen twentysixteen
 
 ## いろいろなプラグインをインストール
 echo "いろいろなプラグインをインストールしますか?  [Y/N]"
@@ -61,17 +61,17 @@ case $ANSWER3 in
 esac
 
 ## オプション
-wocker wp option update timezone_string 'Asia/Tokyo'
-wocker wp option update date_format 'Y年n月j日'
-wocker wp option update time_format 'H:i'
+wp option update timezone_string 'Asia/Tokyo'
+wp option update date_format 'Y年n月j日'
+wp option update time_format 'H:i'
 
 ## プラグインとテーマのアプデ
-wocker wp plugin update-all
-wocker wp theme update-all
+wp plugin update-all
+wp theme update-all
 
 ## 翻訳ファイルのアプデ
-wocker wp core language update
+wp core language update
 
 ## 日本語コアファイルのアプデ
-wocker wp core update --locale=ja --force
-wocker wp core update-db
+wp core update --locale=ja --force
+wp core update-db
