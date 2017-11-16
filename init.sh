@@ -51,15 +51,6 @@ case $ANSWER1 in
     * ) echo "plugin Done!";;
 esac
 
-echo "behatをインストールしますか?  [Y/N]"
-read ANSWER3
-
-case $ANSWER3 in
-    "" | "Y" | "y" | "yes" | "Yes" | "YES" )
-    cd behat && npm install && npm run init &&  echo "behat install Done!!";;
-    * ) echo "init Done!";;
-esac
-
 ## オプション
 wp option update timezone_string 'Asia/Tokyo'
 wp option update date_format 'Y年n月j日'
