@@ -26,7 +26,7 @@ brawsersyncが起動。
 
 #### gulp image
 `src/img`内の画像ファイルを圧縮し、`assets/img`に保存します。  
-`src/svgSprite`内に設置したSVGファイルをSVGスプライトとして`assets/svg`に保存します。  
+`src/img/svgSprite`内に設置したSVGファイルをSVGスプライトとして`assets/svg`に保存します。  
 その際、fillは全て削除され、圧縮されます。
 SVGスプライトのID名、画像は`doc/svg/template.html`に保存されています。
 
