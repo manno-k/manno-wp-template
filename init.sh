@@ -14,7 +14,7 @@ read ANSWER1
 
 case $ANSWER1 in
     "" | "Y" | "y" | "yes" | "Yes" | "YES" )
-      wocker wp plugin install wp-multibyte-patch \
+      wp plugin install wp-multibyte-patch \
       theme-check \
       debug-bar \
       debug-bar-extender \
