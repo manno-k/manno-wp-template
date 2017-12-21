@@ -3,11 +3,11 @@
 wp-cliが入っている事が前提となります。
 
 ## 使用方法
-git clone してフォルダ内で
-`sh init.sh`
-`npm install`
+git clone してフォルダ内で  
+`sh init.sh`  
+`npm install`  
 ### init.sh
-wordpressの更新やプラグインのインストールなどが書かれています。
+wordpressの更新やプラグインのインストールなどが書かれています。  
 必要に応じて書き換えて下さい。
 
 ### npm install
@@ -15,22 +15,37 @@ wordpressの更新やプラグインのインストールなどが書かれて�
 gulpのインストールなどが行われます。
 
 #### Gulp
-gulpfile.jsの File Destinationsに様々なpathを書いていく事ができます。
+gulpfile.jsの File Destinationsに様々なpathを書いていく事ができます。  
 brawsersyncのアドレスなどをここで設定して下さい。
 
-##### 基本コマンド
-gulpインストール完了後`gulp`で実行可能です。
-#### その他のコマンド
+##### コマンド
+###### gulp
+brawsersyncが起動。  
+※使用前にgulpfile.js要設定  
+※imgフォルダは監視対象外  
+
 ###### gulp image
-`src/img`内の画像ファイルを圧縮し、`assets/img`に保存します。
+`src/img`内の画像ファイルを圧縮し、`assets/img`に保存します。  
+`src/svgSprite`内に設置したSVGファイルをSVGスプライトとして`assets/svg`に保存します。  
+その際、fillは全て削除され、圧縮されます。
+SVGスプライトのID名、画像は`doc/svg/template.html`に保存されています。
 
 ###### gulp test-sass
 sass lint を走らせます。
 
-## Sass
-CSS設計にFLOCSSを採用。
-style.scssで、Bootstarp/FontAwesomeが読み込まれるようになってます。
-必要なければコメントアウトして下さい。
+###### gulp style
+style guideを作成します。  
+sc5-styleguideを走らせてます。  
 
-## phpmd及びphp code sniffer
-ルールファイルをフォルダに入れてますので必要に応じて使用して下さい。
+## wordpressテンプレートタグ
+`<?php echo twentyseventeen_get_svg( array( 'icon' => 'twitter' ) ); ?>`  
+上記タグで、SVGスプライトを呼び出し可能。
+シンボルは全て`doc/svg/template.html`で確認可能。
+
+## コード規約
+### Sass
+CSS設計にFLOCSSを採用。  
+style.scssで、Bootstarp/FontAwesomeが読み込まれるようになってます。  
+必要なければコメントアウトして下さい。  
+### phpmd及びphp code sniffer  
+ルールファイルをフォルダに入れてますので必要に応じて使用して下さい。  
