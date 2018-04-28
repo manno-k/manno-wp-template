@@ -199,7 +199,6 @@ gulp.task('svgSprite', function () {
                 height: 0
             });
             $('svg').addClass('hide');
-            $('[fill]').removeAttr('fill');
             var symbols = $('svg > symbol').map(function () {
                 return {
                     id: $(this).attr('id'),

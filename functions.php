@@ -123,9 +123,9 @@ function wordpress_template_scripts()
 {
     wp_enqueue_style('wordpress_template-style', get_stylesheet_uri());
 
-    wp_enqueue_script('wordpress_template-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true);
+    wp_enqueue_script('wordpress_template-navigation', get_template_directory_uri() . '/assets/js/navigation.min.js', array(), '20151215', true);
 
-    wp_enqueue_script('wordpress_template-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true);
+    wp_enqueue_script('wordpress_template-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.min.js', array(), '20151215', true);
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
@@ -259,3 +259,23 @@ function wp_get_svg( $args = array() ) {
 
 	return $svg;
 }
+
+/*
+ * ACF Options setting.
+ *
+ * Doc https://www.advancedcustomfields.com/add-ons/options-page/
+ */
+//
+//if( function_exists('acf_add_options_page') ) {
+//
+//	acf_add_options_page(array(
+//		'page_title' 	=> '共通オプション設定',
+//		'menu_title'	=> '共通オプション',
+//		'menu_slug' 	=> 'theme-options',
+//		'capability'	=> 'edit_posts',
+//		'parent_slug'	=> '',
+//		'position'	=> false,
+//		'redirect'	=> false,
+//	));
+//
+//}

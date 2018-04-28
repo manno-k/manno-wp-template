@@ -42,6 +42,11 @@ sc5-styleguideを走らせてます。
 上記タグで、SVGスプライトを呼び出し可能。
 シンボルは全て`doc/svg/template.html`で確認可能。
 
+## functions.php
+
+ACF Options Pagesの設定を追加しています。
+不要であれば削除して下さい。
+
 ## コード規約
 ### Sass
 CSS設計にFLOCSSを採用。  
