@@ -45,6 +45,7 @@ var path = {
     'styleGuideName': '',
     'styleGuidePort': '4000',
     // browser sync
+    // .localでは遅くなるため注意
     'host': '',
     'https': true,
 }

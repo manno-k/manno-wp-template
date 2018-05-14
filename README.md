@@ -27,7 +27,6 @@ brawsersyncが起動。
 #### gulp image
 `src/img`内の画像ファイルを圧縮し、`assets/img`に保存します。  
 `src/img/svgSprite`内に設置したSVGファイルをSVGスプライトとして`assets/svg`に保存します。  
-その際、fillは全て削除され、圧縮されます。
 SVGスプライトのID名、画像は`doc/svg/template.html`に保存されています。
 
 #### gulp test-sass
@@ -51,6 +50,29 @@ ACF Options Pagesの設定を追加しています。
 ### Sass
 CSS設計にFLOCSSを採用。  
 style.scssで、Bootstarp/FontAwesomeが読み込まれるようになってます。  
-必要なければコメントアウトして下さい。  
+必要なければコメントアウトして下さい。
+
+#### mixin
+##### リンクカラー一括制御
+```
+@mixin link_color($color) {
+  a, a:visited, a:hover, a:focus, a:active {
+    color: $color;
+    @content;
+  }
+}
+```
+##### IEにのみCSSを当てる
+```
+@mixin ie_only{
+  @media all and (-ms-high-contrast: none) {
+    *::-ms-backdrop, & {
+      @content;
+    }
+  }
+}
+```
+
+
 ### phpmd及びphp code sniffer  
 ルールファイルをフォルダに入れてますので必要に応じて使用して下さい。  
