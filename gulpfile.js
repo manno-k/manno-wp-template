@@ -103,9 +103,9 @@ gulp.task('style', function () {
 			this.emit('end');
 		}
 	}))
-	.pipe(sourcemaps.init())
 	.pipe(sass())
 	.pipe(sass().on('error', sass.logError))
+	.pipe(sourcemaps.init())
 	.pipe(postcss(processors))
 	.pipe($.cssmin())
 	.pipe(sourcemaps.write(path.souceMapDest))

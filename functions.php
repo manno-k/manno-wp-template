@@ -121,7 +121,7 @@ add_action('widgets_init', 'wordpress_template_widgets_init');
  */
 function wordpress_template_scripts()
 {
-    wp_enqueue_style('wordpress_template-style', get_stylesheet_uri());
+	wp_enqueue_style( 'wordpress_template-style', get_stylesheet_uri(), [], filemtime( __DIR__ . '/style.css' ) );
 
     wp_enqueue_script('wordpress_template-navigation', get_template_directory_uri() . '/assets/js/navigation.min.js', array(), '20151215', true);
 
