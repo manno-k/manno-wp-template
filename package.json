@@ -16,9 +16,9 @@
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^7.1.2",
-    "browser-sync": "^2.12.10",
+    "browser-sync": "^2.24.6",
     "caniuse-db": "^1.0.30000704",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-cheerio": "^0.6.2",
     "gulp-combine-mq": "^0.4.0",
     "gulp-concat": "^2.6.0",
@@ -48,6 +48,6 @@
   },
   "dependencies": {
     "bower": "^1.7.9",
-    "sc5-styleguide": "^2.0.4"
+    "sc5-styleguide": "^2.2.0"
   }
 }
