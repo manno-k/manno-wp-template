@@ -1,23 +1,7 @@
 /*!
 Theme Name: wordpress-template
-Theme URI: http://underscores.me/
-Author: Underscores.me
-Author URI: http://underscores.me/
 Description: Description
 Version: 1.0.0
-License: GNU General Public License v2 or later
-License URI: LICENSE
-Text Domain: commit
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-
-commit is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
-
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 /*
 Bootstrap
@@ -26,17 +10,22 @@ Bootstrap
 @import "foundation/bootstrap/bootstrap-grid";
 @import "foundation/bootstrap/bootstrap-reboot";
 @import "foundation/fontawesome/font-awesome";
+
 /*
 Theme Sass file
  */
+
 // foundation
 @import 'foundation/variable';
-@import "foundation/mixin"; // object
+@import "foundation/mixin";
+// object
 @import "object/utility/utility";
 @import "object/compornent/nav";
-@import "object/compornent/sidebar"; // layout
+@import "object/compornent/sidebar";
+// layout
 @import "layout/header";
-@import "layout/footer"; // project
+@import "layout/footer";
+// project
 @import "object/project/front";
 
 /*--------------------------------------------------------------
@@ -141,6 +130,7 @@ mark {
 big {
   font-size: 125%;
 }
+
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
@@ -210,6 +200,7 @@ table {
   margin: 0 0 1.5em;
   width: 100%;
 }
+
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -294,6 +285,7 @@ select {
 textarea {
   width: 100%;
 }
+
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
@@ -322,6 +314,7 @@ a:active,
 a:hover {
   outline: 0;
 }
+
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
@@ -376,11 +369,13 @@ a:hover {
   display: block;
   text-decoration: none;
 }
+
 /* Small menu. */
 .main-navigation.toggled ul,
 .menu-toggle {
   display: block;
 }
+
 @media screen and (min-width: 37.5em) {
   .menu-toggle {
     display: none;
@@ -412,6 +407,7 @@ a:hover {
   text-align: right;
   width: 50%;
 }
+
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
@@ -451,10 +447,12 @@ a:hover {
   z-index: 100000;
   /* Above WP toolbar. */
 }
+
 /* Do not show the outline on the skip link target. */
 #content[tabindex="-1"]:focus {
   outline: 0;
 }
+
 /*--------------------------------------------------------------
 # Alignments
 --------------------------------------------------------------*/
@@ -476,6 +474,7 @@ a:hover {
   margin-left: auto;
   margin-right: auto;
 }
+
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
@@ -504,6 +503,7 @@ a:hover {
 .site-header:after {
   clear: both;
 }
+
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
@@ -515,6 +515,7 @@ a:hover {
 .widget select {
   max-width: 100%;
 }
+
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
@@ -543,6 +544,7 @@ a:hover {
   clear: both;
   margin: 0 0 1.5em;
 }
+
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
@@ -553,6 +555,7 @@ a:hover {
 .bypostauthor {
   display: block;
 }
+
 /*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/
@@ -562,10 +565,12 @@ a:hover {
   /* Theme Footer (when set to scrolling) */
   display: none;
 }
+
 /* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
 .infinity-end.neverending .site-footer {
   display: block;
 }
+
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
@@ -577,16 +582,19 @@ a:hover {
   margin-top: 0;
   padding: 0;
 }
+
 /* Make sure embeds and iframes fit their containers. */
 embed,
 iframe,
 object {
   max-width: 100%;
 }
+
 /* Make sure logo link wraps around logo image. */
 .custom-logo-link {
   display: inline-block;
 }
+
 /*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/
@@ -608,6 +616,7 @@ object {
 .wp-caption-text {
   text-align: center;
 }
+
 /*--------------------------------------------------------------
 ## Galleries
 --------------------------------------------------------------*/

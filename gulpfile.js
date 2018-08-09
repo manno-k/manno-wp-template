@@ -11,7 +11,6 @@ var postcss = require('gulp-postcss');
 var cssnext = require('postcss-cssnext');
 var browserSync = require('browser-sync');
 var runSequence = require('run-sequence');
-var sourcemaps = require('gulp-sourcemaps');
 var template = require('gulp-template');
 
 /*
@@ -96,7 +95,7 @@ gulp.task('style', function () {
 			}
 		})
 	];
-	return gulp.src(path.sassPass)
+	return gulp.src(path.sassPass,{ sourcemaps: true })
 	.pipe($.plumber({
 		errorHandler: function (err) {
 			console.log(err.messageFormatted);
@@ -105,10 +104,8 @@ gulp.task('style', function () {
 	}))
 	.pipe(sass())
 	.pipe(sass().on('error', sass.logError))
-	.pipe(sourcemaps.init())
 	.pipe(postcss(processors))
 	.pipe($.cssmin())
-	.pipe(sourcemaps.write(path.souceMapDest))
 	.pipe(gulp.dest(path.cssDest))
 	.pipe(browserSync.stream());
 });
