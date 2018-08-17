@@ -21,38 +21,56 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'wordpress_template' ); ?></a>
+<header id="masthead" class="site-header">
+	<div class="site-branding">
+		<?php
+		the_custom_logo();
+		if ( is_front_page() && is_home() ) : ?>
+			<h1 class="site-title">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+		<?php else : ?>
+			<p class="site-title">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+		<?php
+		endif;
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
+		$description = get_bloginfo( 'description', 'display' );
+		if ( $description || is_customize_preview() ) : ?>
+			<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
+		<?php
+		endif; ?>
+	</div><!-- .site-branding -->
+
+	<nav class="c-nav__sp">
+		<button type="button" class="js-offcanvas-btn js-offcanvas-btn-right">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="hiraku-open-btn-line"></span>
+		</button>
+		<div class="js-offcanvas-right">
+			<div class="c-nav__sp-search">
+				<?php get_search_form(); ?>
+			</div>
 			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-				<?php
-			endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'wordpress_template' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
+			$defaults = array(
+				'menu'            => '',
+				'container'       => 'div',
+				'container_class' => 'list-group',
+				'fallback_cb'     => 'wp_page_menu',
+			);
+			wp_nav_menu( $defaults );
 			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+		</div>
+	</nav><!-- #site-navigation -->
+	<nav class="c-nav__pc">
+		<?php
+		$defaults = array(
+			'menu'            => '',
+			'container'       => 'div',
+			'container_class' => 'list-group',
+			'fallback_cb'     => 'wp_page_menu',
+		);
+		wp_nav_menu( $defaults );
+		?>
+	</nav>
+</header><!-- #masthead -->
 
-	<div id="content" class="site-content">
