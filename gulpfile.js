@@ -42,7 +42,7 @@ var path = {
 	// .localでは遅くなるため注意
 	'host': 'wordpresstemplate.lo',
 	'https': true,
-}
+};
 
 /*
  Js Tasks
@@ -51,7 +51,10 @@ var path = {
 
 gulp.task("concat", function () {
 	return gulp.src([
-		'src/js/test.js'
+		'src/js/hiraku.js',
+		'src/js/hiraku-custom.js',
+		'src/js/slick.js',
+		'src/js/slick-custom.js'
 	])
 	.pipe($.plumber())
 	.pipe($.concat("minified.js"))

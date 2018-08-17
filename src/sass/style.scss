@@ -9,7 +9,17 @@ Bootstrap
 @import "foundation/bootstrap/bootstrap";
 @import "foundation/bootstrap/bootstrap-grid";
 @import "foundation/bootstrap/bootstrap-reboot";
-@import "foundation/fontawesome/font-awesome";
+
+/*
+hiraku
+ */
+@import "foundation/hiraku/hiraku";
+
+/*
+slick
+ */
+@import "foundation/slick/slick";
+@import "foundation/slick/slick-theme";
 
 /*
 Theme Sass file
@@ -18,8 +28,10 @@ Theme Sass file
 // foundation
 @import 'foundation/variable';
 @import "foundation/mixin";
+
 // object
 @import "object/utility/utility";
+@import "object/compornent/js";
 @import "object/compornent/nav";
 @import "object/compornent/sidebar";
 // layout

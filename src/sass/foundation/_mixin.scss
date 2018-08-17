@@ -1,15 +1,18 @@
 /*
 mixinをまとめています。
  */
-
-@mixin ie_only{
+@mixin ie_only {
   @media all and (-ms-high-contrast: none) {
     *::-ms-backdrop, & {
       @content;
     }
   }
 }
-
+@mixin safari_only{
+  _::-webkit-full-page-media, _:future, :root & {
+    @content;
+  }
+}
 @mixin link_color($color) {
   a, a:visited, a:hover, a:focus, a:active {
     color: $color;
