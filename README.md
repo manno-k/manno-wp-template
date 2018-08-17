@@ -1,18 +1,8 @@
 # _sを使用したwordpressテンプレートです。
-## 前提
-wp-cliが入っている事が前提となります。
+## 前提条件
+`npm`がインストールされていることが条件となります。
 
-## 使用方法
-git clone してフォルダ内で  
-`sh init.sh`  
-`npm install`  
-### init.sh
-wordpressの更新やプラグインのインストールなどが書かれています。  
-必要に応じて書き換えて下さい。
-
-### npm install
-
-gulpのインストールなどが行われます。
+### インストール方法
 
 ## Gulp
 gulpfile.jsの File Destinationsに様々なpathを書いていく事ができます。  
@@ -49,30 +39,36 @@ ACF Options Pagesの設定を追加しています。
 ## コード規約
 ### Sass
 CSS設計にFLOCSSを採用。  
-style.scssで、Bootstarp/FontAwesomeが読み込まれるようになってます。  
-必要なければコメントアウトして下さい。
 
-#### mixin
-##### リンクカラー一括制御
-```
-@mixin link_color($color) {
-  a, a:visited, a:hover, a:focus, a:active {
-    color: $color;
-    @content;
-  }
+### utility
+`display:none`を付与するクラスを作成しています。
+`.u-hidden-xs-down`等で使用可能です。
+下記の仕様に準拠しています。
+- [Responsive utilities](https://v4-alpha.getbootstrap.com/layout/responsive-utilities/)  
+※Bootstrap4では削除されたため追加しています。
+
+### mixin
+#### 特定ブラウザにスタイルをあてる
+safari
+```scss
+@include safari_only{
+  display: block;
 }
 ```
-##### IEにのみCSSを当てる
-```
-@mixin ie_only{
-  @media all and (-ms-high-contrast: none) {
-    *::-ms-backdrop, & {
-      @content;
-    }
-  }
+IE
+```scss
+@include ie_only{
+display: block;
 }
 ```
 
+#### link color
+
+```scss
+@include link_color($black){
+  text-decoration: none;
+}
+```
 
 ### phpmd及びphp code sniffer  
 ルールファイルをフォルダに入れてますので必要に応じて使用して下さい。  
