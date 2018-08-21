@@ -36,7 +36,12 @@ sc5-styleguideを走らせてます。
 ACF Options Pagesの設定を追加しています。
 不要であれば削除して下さい。
 
-## コード規約
+## JSについて
+
+デフォルトでハンバーガーメニューのライブラリ`hiraku`がインストールされています。  
+スライダーには`slick`がjsフォルダ内に格納されています。
+
+## CSSについて
 ### Sass
 CSS設計にFLOCSSを採用。  
 
@@ -46,6 +51,26 @@ CSS設計にFLOCSSを採用。
 下記の仕様に準拠しています。
 - [Responsive utilities](https://v4-alpha.getbootstrap.com/layout/responsive-utilities/)  
 ※Bootstrap4では削除されたため追加しています。
+
+`.col-12 .col-md-12`といった書き方で、純粋な12分割のグリッドが使用できます。
+
+```sass
+@each $size in xs, sm, md, lg, xl {
+  @for $i from 1 through 12 {
+    .u-col-#{$i} {
+      flex-basis: 8.333333333% * $i;
+      min-width: 8.333333333% * $i;
+    }
+
+    .u-col-#{$size}-#{$i} {
+      @include media-breakpoint-up(#{$size}) {
+        flex-basis: 8.333333333% * $i!important;
+        min-width: 8.333333333% * $i!important;
+      }
+    }
+  }
+}
+```
 
 ### mixin
 #### 特定ブラウザにスタイルをあてる
