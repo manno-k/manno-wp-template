@@ -1,0 +1,12 @@
+{
+  "plugins": "stylelint-scss",
+  "ignoreFiles": [
+    "src/sass/foundation/bootstrap/**/*.scss",
+    "src/sass/foundation/slick/*.scss",
+    "src/sass/foundation/hiraku/*.scss"
+  ],
+  "extends": "stylelint-config-recommended-scss",
+  "rules": {
+    "color-hex-case":"upper"
+  }
+}

@@ -3,53 +3,53 @@ uttility
  */
 
 .u-font-gothic {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif !important;
+	font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif !important;
 }
 
 .u-font-mincho {
-  font-family: Georgia, 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN", HGS明朝E, メイリオ, Meiryo, serif;
+	font-family: Georgia, 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN", HGS明朝E, メイリオ, Meiryo, serif;
 }
 
 // margin padding
 .u-mp-0 {
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 //size
 
 .u-max-width {
-  max-width: $max-width;
+	max-width: $max-width;
 }
 
 // display:none;
 @each $size in xs, sm, md, lg, xl {
-  .u-hidden-#{$size}-up {
-    @include media-breakpoint-up(#{$size}) {
-      display: none !important;
-    }
-  }
-  .u-hidden-#{$size}-down {
-    @include media-breakpoint-down(#{$size}) {
-      display: none !important;
-    }
-  }
+	.u-hidden-#{$size}-up {
+		@include media-breakpoint-up(#{$size}) {
+			display: none !important;
+		}
+	}
+	.u-hidden-#{$size}-down {
+		@include media-breakpoint-down(#{$size}) {
+			display: none !important;
+		}
+	}
 }
 
 // grid utility
 
 @each $size in xs, sm, md, lg, xl {
-  @for $i from 1 through 12 {
-    .u-col-#{$i} {
-      flex-basis: 8.333333333% * $i;
-      min-width: 8.333333333% * $i;
-    }
+	@for $i from 1 through 12 {
+		.u-col-#{$i} {
+			flex-basis: 8.333333333% * $i;
+			min-width: 8.333333333% * $i;
+		}
 
-    .u-col-#{$size}-#{$i} {
-      @include media-breakpoint-up(#{$size}) {
-        flex-basis: 8.333333333% * $i!important;
-        min-width: 8.333333333% * $i!important;
-      }
-    }
-  }
+		.u-col-#{$size}-#{$i} {
+			@include media-breakpoint-up(#{$size}) {
+				flex-basis: 8.333333333% * $i !important;
+				min-width: 8.333333333% * $i !important;
+			}
+		}
+	}
 }

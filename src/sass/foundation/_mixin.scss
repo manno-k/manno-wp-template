@@ -9,11 +9,13 @@ mixinをまとめています。
     }
   }
 }
+/* stylelint-disable */
 @mixin safari_only{
   _::-webkit-full-page-media, _:future, :root & {
     @content;
   }
 }
+/* stylelint-enable */
 
 @mixin link_color($color) {
   a, a:visited, a:hover, a:focus, a:active {
