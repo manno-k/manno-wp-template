@@ -1,0 +1,9 @@
+{
+  "require-dev": {
+    "squizlabs/PHP_CodeSniffer": "^3.0.2",
+    "phpmd/phpmd": "@stable"
+  },
+  "require": {
+    "wp-coding-standards/wpcs": "^1.1"
+  }
+}
