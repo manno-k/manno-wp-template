@@ -12,14 +12,14 @@ uttility
 
 // margin padding
 .u-mp-0 {
-	margin: 0;
-	padding: 0;
+	@extend .m-0;
+	@extend .p-0;
 }
 
 //size
 
 .u-max-width {
-	max-width: $max-width;
+	max-width: $base-width;
 }
 
 // display:none;
@@ -52,4 +52,19 @@ uttility
 			}
 		}
 	}
+}
+
+// link utility
+
+// aタグにつける
+.u-text-deco-none {
+	&, &:visited, &:hover, &:focus, &:active {
+		text-decoration: none;
+
+	}
+}
+
+.u-link-block {
+	@extend .d-block;
+	@extend .w-100;
 }

@@ -22,9 +22,12 @@ module.exports = {
 		// 指定していないファイルはminified.jsに圧縮されない。
 		concat: [
 			'src/js/hiraku.js',
-			'src/js/hiraku-custom.js',
+			'src/js/hiraku-init.js',
 			'src/js/slick.js',
-			'src/js/slick-custom.js'
+			'src/js/slick-init.js',
+			'src/js/smoothscroll.js',
+			'src/js/ofi.js',
+			'src/js/ofi-init.js',
 		]
 	},
 	styles: {

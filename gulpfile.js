@@ -112,7 +112,7 @@ gulp.task('image-opt', function () {
 		$.image({
 			pngquant: true,
 			optipng: true,
-			zopflipng: true,
+			zopflipng: false,
 			advpng: true,
 			jpegRecompress: false,
 			jpegoptim: false,

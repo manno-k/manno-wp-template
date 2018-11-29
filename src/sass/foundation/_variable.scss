@@ -1,12 +1,23 @@
 /*
 変数を格納しています。
  */
+
+// font-size
+
+$font-size-base: 1rem !default;
+$font-size-sm: $font-size-base * .833 !default;
+$font-size-md: $font-size-base * 1.17 !default;
+$font-size-lg: $font-size-base * 2 !default;
+$font-size-xl: $font-size-base * 2.6 !default;
+
 // base-color
 
 //sns
-$fb-blue:#3B5998;
-$line-green:#00BB00;
+$fb-blue: #3B5998;
+$line-green: #00BB00;
 
-// size
+// window max size
+$base-width: 1240px;
 
-$max-width:940px;
+// transition
+$transition-base: all .2s ease-in-out;

@@ -2,48 +2,84 @@
 ## 前提条件
 `npm`がインストールされていることが条件となります。
 
-### インストール方法
-
 ## Gulp
-gulpfile.jsの File Destinationsに様々なpathを書いていく事ができます。  
+`gulpfileconfig.js`に様々なpathを書いていく事ができます。  
 brawsersyncのアドレスなどをここで設定して下さい。
 
 ### コマンド
 #### gulp
 brawsersyncが起動。  
-※使用前にgulpfile.js要設定  
+※使用前に`gulpfileconfig.js`要設定  
 ※imgフォルダは監視対象外  
 
 #### gulp image
 `src/img`内の画像ファイルを圧縮し、`assets/img`に保存します。  
-`src/img/svgSprite`内に設置したSVGファイルをSVGスプライトとして`assets/svg`に保存します。  
-SVGスプライトのID名、画像は`doc/svg/template.html`に保存されています。
-
-#### gulp test-sass
-sass lint を走らせます。
-
-#### gulp style
-style guideを作成します。  
-sc5-styleguideを走らせてます。  
-
-## wordpressテンプレートタグ
-`<?php echo twentyseventeen_get_svg( array( 'icon' => 'twitter' ) ); ?>`  
-上記タグで、SVGスプライトを呼び出し可能。
-シンボルは全て`doc/svg/template.html`で確認可能。
 
 ## functions.php
 
-ACF Options Pagesの設定を追加しています。
-不要であれば削除して下さい。
+- ACF Options Pagesの設定を追記しコメントアウトしています。
+- ACF JSONが追加されています。
 
 ## JSについて
+### 初期インストールプラグイン
+#### スライダー
+[slick][]
 
-デフォルトでハンバーガーメニューのライブラリ`hiraku`がインストールされています。  
-スライダーには`slick`がjsフォルダ内に格納されています。
+#### ハンバーガーメニュー
+[hiraku](https://www.appleple.com/blog/javascript/hiraku-js.html)
+    - レイアウトによっては [drawer][]を使用しても良い。
+    
+#### polyfill
+- [object-fit-images](https://github.com/bfred-it/object-fit-images)
+- [smooth scroll behavior polyfill](http://iamdustan.com/smoothscroll/)
 
 ## CSSについて
-### Sass
-CSS設計にFLOCSSを採用。  
+
+### フレームワーク
+- [Bootstrap][]
+
+### CSSアーキテクチャ
+  - [FLOCSS][]
+  - [参考](https://qiita.com/Atsss/items/4f9d98fb1d0546539c09)
+  - サイトの継続的な運用が見込まれるためFLOCSSで作成します。
+  - プレフィックスとフォルダ・ファイル構成はFLOCSSに準拠します。
+
+#### プレフィックス
+- [FLOCSS][]に準拠
+- jsが絡むクラスに関しては.jsを使用
+
+```
+Component - .c-*
+Project - .p-*
+Utility - .u-*
+JS - .js-*
+SVG - .svg-*
+```
+
+####  クラス命名規則
+
+- [FLOCSS][]では[MindBEMding][]を採用している。
+- [RSCSS](https://qiita.com/kk6/items/760efba180ec526903db)の命名でもよい、RSCSSもセパレータや詳細度が異なるが基本は[MindBEMding][]である。
+- BEMに従って命名する場合は `block-name_element-name`
+  - Block - Elementのセパレータはアンダースコア(`_`)
+
+##### pc/spの分割について
+レスポンシブデザインではないため、以下のルールを設けます。
+
+- sp用のクラスにはblockに`sp`をつける
+    - 例:`.l-block-sp_element-name`
+- 可読性を高めるため、pc/spの記述は分離させる。
+
+```
+.l-header{
+    pc用
+}
+
+.l-header-sp{
+    SP用
+}
+```
+
 
 ### utility
 `display:none`を付与するクラスを作成しています。
@@ -87,6 +123,22 @@ display: block;
 }
 ```
 
+### object-fit
+
+IE対策用の以下のライブラリを使用する際のmixin
+
+- [object-fit-images](https://github.com/bfred-it/object-fit-images)
+
+```sass
+// object-fit-imagesの指定も行えるようにmixin化
+@mixin object-fit($properties) {
+    object-fit: $properties;
+    /* stylelint-disable */
+    font-family: 'object-fit: #{$properties};';
+    /* stylelint-enable */
+}
+```
+
 #### link color
 
 ```scss
@@ -95,5 +147,28 @@ display: block;
 }
 ```
 
+## 画像の取扱に関して
+### 画像保存先
+
+`src/img`内の画像ファイルを圧縮し、`assets/img`に保存します。  
+
+
+### SVG取扱に関する注意事項
+
+- `<xml>`等の不要なタグが含まれている場合は予期せぬ不具合の原因となるため、削除しておく。
+- `<text>`で囲まれているテキスト要素はブラウザによってフォントが異なるため、アウトライン化して使用する。
+    - デザイナーに依頼する。
+- IEでの表示バグを防ぐため`<svg>`に以下の要素を指定する。
+    - ` width="123.88" height="133" preserveAspectRatio="xMinYMid" `
+
 ### phpmd及びphp code sniffer  
 ルールファイルをフォルダに入れてますので必要に応じて使用して下さい。  
+
+
+<!-- 以下、各種リンク -->
+
+[FLOCSS]: https://github.com/hiloki/flocss
+[MindBEMding]: https://github.com/juno/bem-methodology-ja/blob/master/definitions.md
+[Bootstarp]: https://getbootstrap.com/
+[slick]: http://kenwheeler.github.io/slick/
+[drawer]: https://github.com/blivesta/drawer
