@@ -14,7 +14,7 @@ module.exports = {
 	},
 	build: {
 		css: './',
-		js: 'assets/img/',
+		js: 'assets/js/',
 		img: 'assets/img/'
 	},
 	script: {
