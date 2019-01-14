@@ -1,7 +1,9 @@
+/*---------------------------------
+utility
+---------------------------------*/
 /*
-uttility
+font family
  */
-
 .u-font-gothic {
 	font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif !important;
 }
@@ -9,20 +11,39 @@ uttility
 .u-font-mincho {
 	font-family: Georgia, 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN", HGS明朝E, メイリオ, Meiryo, serif;
 }
-
-// margin padding
+/*
+margin / padding
+ */
 .u-mp-0 {
 	@extend .m-0;
 	@extend .p-0;
 }
 
-//size
+/*
+size
+ */
 
 .u-max-width {
 	max-width: $base-width;
 }
 
-// display:none;
+/*
+span color
+ */
+
+
+
+/*
+bg color
+ */
+
+.u-bg-white {
+	background-color: $white;
+}
+
+/*
+display none properties
+ */
 @each $size in xs, sm, md, lg, xl {
 	.u-hidden-#{$size}-up {
 		@include media-breakpoint-up(#{$size}) {
@@ -36,8 +57,9 @@ uttility
 	}
 }
 
-// grid utility
-
+/*
+grid properties
+ */
 @each $size in xs, sm, md, lg, xl {
 	@for $i from 1 through 12 {
 		.u-col-#{$i} {
@@ -54,7 +76,25 @@ uttility
 	}
 }
 
-// link utility
+/*
+icon size
+ */
+
+// icon size
+
+@each $size in 30 {
+	.u-icon-#{$size} {
+		display: inline-block;
+		width: #{$size}px;
+		height: #{$size}px;
+		// 文字に対して真ん中になるよう縦の位置を調整
+		transform: translateY(-1px);
+	}
+}
+
+/*
+link styles
+ */
 
 // aタグにつける
 .u-text-deco-none {

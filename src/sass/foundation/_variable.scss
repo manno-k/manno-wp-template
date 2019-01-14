@@ -4,11 +4,11 @@
 
 // font-size
 
-$font-size-base: 1rem !default;
-$font-size-sm: $font-size-base * .833 !default;
-$font-size-md: $font-size-base * 1.17 !default;
-$font-size-lg: $font-size-base * 2 !default;
-$font-size-xl: $font-size-base * 2.6 !default;
+$fs-base: 14px;
+$fs-md: 16px;
+$fs-lg: 23px;
+$fs-xl: 28px;
+$fs-xxl: 32px;
 
 // base-color
 

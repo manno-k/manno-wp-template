@@ -33,11 +33,11 @@ Theme Sass file
 @import "foundation/svg";
 // object
 @import "object/utility/utility";
-@import "object/compornent/js";
-@import "object/compornent/nav";
-@import "object/compornent/sidebar";
+@import "object/component/js";
+@import "object/component/nav";
+@import "object/component/sidebar";
 // layout
 @import "layout/header";
 @import "layout/footer";
 // project
-@import "object/project/front";
+@import "object/project/project";

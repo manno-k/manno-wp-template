@@ -21,13 +21,20 @@ module.exports = {
 		// まとめたいファイルをまとめたい順番に指定していく。
 		// 指定していないファイルはminified.jsに圧縮されない。
 		concat: [
+			// ハンバーガーメニュー
 			'src/js/hiraku.js',
 			'src/js/hiraku-init.js',
+			// スライダー
 			'src/js/slick.js',
 			'src/js/slick-init.js',
+			// smooth scroll polyfill
 			'src/js/smoothscroll.js',
+			// object-fit polyfill
 			'src/js/ofi.js',
 			'src/js/ofi-init.js',
+			// scroll監視プラグイン
+			// 'src/js/ScrollTrigger.js',
+			// 'src/js/ScrollTrigger-init.js',
 		]
 	},
 	styles: {
