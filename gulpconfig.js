@@ -4,7 +4,7 @@ gulpファイルで使用する変数やオプションを指定します。
 module.exports = {
 	server: {
 		proxy: 'wordpresstemplate.lo',
-		https: 'true',
+		https: false,
 		port: 3000
 	},
 	source: {
@@ -18,6 +18,8 @@ module.exports = {
 		img: 'assets/img/'
 	},
 	script: {
+		// 圧縮時のファイル名
+		filename:'minified.js',
 		// まとめたいファイルをまとめたい順番に指定していく。
 		// 指定していないファイルはminified.jsに圧縮されない。
 		concat: [

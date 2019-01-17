@@ -75,7 +75,7 @@ gulp.task('concat', function () {
 	return gulp
 	.src(config.script.concat)
 	.pipe($.plumber())
-	.pipe($.concat('minified.js'))
+	.pipe($.concat(config.script.filename))
 	.pipe($.uglify())
 	.pipe(
 		$.rename({

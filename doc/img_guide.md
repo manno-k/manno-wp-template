@@ -29,8 +29,6 @@
 ```
 .
 ├── assets/
-│   ├── css/
-│   │   └── icon/
 │   ├── img/
 │   │   ├── common/
 │   │   ├── svg/
@@ -51,8 +49,7 @@
 - 画像は基本的に圧縮前を`src/img`圧縮後を`/assets/img`ディレクトリに保存します。
 - 各ディレクトリ内で共通の画像は`/assets/img/common`や`/assets/img/product-name/common`のようにcommonディレクトリを作ります。
 - 各ディクトリ内はHTMLのファイル名ごとにディレクトリを作ります。`/product-name/index.html`は`/assets/img/product-name/index`、`/product-name/event.html`は`/assets/img/product-name/event`になります。
-- アイコンフォント用のSVGファイルは`/assets/css/icon`ディレクトリに保存します。
-- インラインSVG用のSVGファイルは`/assets/svg`ディレクトリに保存します。
+- インラインSVG用のSVGファイルは`/assets/img/svg`ディレクトリに保存します。
 - img要素で表示させるSVGファイルは`/assets/img`ディレクトリにJPGなどと同じように保存します。
 - PDFファイルのようなブラウザ上に表示させないファイルも、JPGなどと同様に`/assets/img`以下に保存します。
 - ファイル名とフォルダ名は適切な英単語を使用してローマ字を使いません。ただし、ローマ字表記がサイトの表記上、正しい場合は使用します。
@@ -82,12 +79,13 @@ CSSをstylesheet、JSをJavaScriptと省略表記にしていない場合は、i
 
 - `background` → `bg`
 - `navigation` → `nav`
+- `smartphone` →`sp
 
 ### 1. 種類
 ボタンやタイトルのようなUIの種類（大分類）をつけます。
 
 - メインビジュアル → `hero`
-- 一般的な画像 → `image`
+- 一般的な画像 → `img`
 - 地図 → `map`
 - リストやグラフ → `chart`
 - バナー・広告 → `banner`
@@ -107,8 +105,8 @@ CSSをstylesheet、JSをJavaScriptと省略表記にしていない場合は、i
 「種類」につけた名前に対して、どのような場面で使うのかを示します。「種類」との間にアンダースコアをつけます。特定のシチュエーションを限定できない場合は省略します。
 
 - メインビジュアルの画像 → `hero` ※「詳細」の省略
-- 一般的な画像 → `image` ※「詳細」の省略
-- 導入部分の画像 → `image_intro`
+- 一般的な画像 → `img` ※「詳細」の省略
+- 導入部分の画像 → `img_intro`
 - オープンアイコン → `icon_open`
 - クローズアイコン → `icon_close`
 - ブランドのロゴ → `logo_brand-name`
@@ -222,6 +220,6 @@ ACFで出力する場合は下記を参考にしてください。
 	$attr      = [
 			'alt' => $blog_info
 			];
-	echo wp_get_attachment_image( , $size, 0, $attr ); ?>
+	echo wp_get_attachment_image($img , $size, 0, $attr ); ?>
 ```
 

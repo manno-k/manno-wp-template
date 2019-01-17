@@ -21,6 +21,57 @@ JS - .js-*
 SVG - .svg-*
 ```
 
+#### 定義
+
+##### Component
+再利用できるパターンとして、小さな単位のモジュールを定義します。
+一般的によく使われるパターンであり、例えばBootstrapのComponentカテゴリなどに見られるbuttonなどが該当します。
+出来る限り、最低限の機能を持ったものとして定義されるべきであり、それ自体が固有の幅や色などの特色を持つことは避けるのが望ましいです。
+
+##### Project
+プロジェクト固有のパターンであり、いくつかのComponentと、それに該当しない要素によって構成されるものを定義します。
+例えば、記事一覧や、ユーザープロフィール、画像ギャラリーなどコンテンツを構成する要素などが該当します。
+
+複数回再利用される場合は、Componentに移行して下さい
+
+##### Utility
+ComponentとProjectレイヤーのObjectのモディファイアで解決することが難しい・適切では無い、わずかなスタイルの調整のための便利クラスなどを定義します。
+Utilityは、Component、ProjectレイヤーのObjectを無尽蔵に増やしてしまうことを防いだり、またこれらのObject自体が持つべきではないmarginの代わりに.mbs { margin-bottom: 10px; }のようなUtility Objectを用いて、隣接するモジュールとの間隔をつくるといった役割を担います。
+またclearfixテクニックのためのルールセットが定義されているヘルパークラスも、このレイヤーに含めます。
+
+#### ディレクトリ構造
+
+ファイル分割を行う際は下記のディレクトリ構造を参考にしてください。
+
+```
+├── foundation
+│   ├── _base.scss
+│   └── _reset.scss
+├── layout
+│   ├── _footer.scss
+│   ├── _header.scss
+│   ├── _main.scss
+│   └── _sidebar.scss
+└── object
+    ├── component
+    │   ├── _button.scss
+    │   ├── _dialog.scss
+    │   ├── _grid.scss
+    │   └── _media.scss
+    ├── project
+    │   ├── _articles.scss
+    │   ├── _comments.scss
+    │   ├── _gallery.scss
+    │   └── _profile.scss
+    └── utility
+        ├── _align.scss
+        ├── _clearfix.scss
+        ├── _margin.scss
+        ├── _position.scss
+        ├── _size.scss
+        └── _text.scss
+```
+
 ####  クラス命名規則
 
 - [FLOCSS][]では[MindBEMding][]を採用している。
@@ -74,7 +125,9 @@ SVG - .svg-*
 ```
 
 #### media query
-保守性の観点からmedia queryは原則としてBootstrapの[Responsive breakpoints](https://getbootstrap.com/docs/4.1/layout/overview/#responsive-breakpoints)に統一します。
+保守性の観点からmedia queryは原則としてBootstrapの[Responsive breakpoints](https://getbootstrap.com/docs/4.1/layout/overview/#responsive-breakpoints)の`media-breakpoint-up`に統一します。
+デザインの兼ね合いで止む終えない場合は`min-width`で定義するようにしてください。
+※`min-width`と`max-width`を混同して使用しないこと
 
 ```sass
 // Extra small devices (portrait phones, less than 576px)
@@ -97,17 +150,41 @@ SVG - .svg-*
 @include media-breakpoint-up(md) { ... }
 @include media-breakpoint-up(lg) { ... }
 @include media-breakpoint-up(xl) { ... }
+```
 
-// Example: Hide starting at `min-width: 0`, and then show at the `sm` breakpoint
+##### 記述ルール
+
+クラスに対して入れ子にする形でmedia-queryを指定してください。
+複数指定するクラスがある場合はその都度指定して下さい。
+
+```scss
+/* OK */
 .custom-class {
   display: none;
-}
-@include media-breakpoint-up(sm) {
-  .custom-class {
-    display: block;
+  @include media-breakpoint-up(sm) {
+      display: block;
   }
 }
+
+.custom-class-2 {
+  display: none;
+  @include media-breakpoint-up(sm) {
+      display: block;
+  }
+}
+
+/* NG */
+@include media-breakpoint-up(sm) {
+    .custom-class {
+           display: none;
+    }
+    .custom-class-2 {
+           display: none;
+    }
+}
 ```
+
+
 
 ### mixin
 #### 特定ブラウザにスタイルをあてる
