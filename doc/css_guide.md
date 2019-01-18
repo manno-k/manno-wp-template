@@ -1,5 +1,4 @@
 ## CSSコーディングガイド
-
 ### フレームワーク
 - [Bootstrap][]
 
@@ -245,4 +244,4 @@ fillの色を変更できるように、pathやgなどに`fill="#{$color}"`を�
 
 [FLOCSS]: https://github.com/hiloki/flocss
 [MindBEMding]: https://github.com/juno/bem-methodology-ja/blob/master/definitions.md
-[Bootstarp]: https://getbootstrap.com/
+[Bootstrap]: https://getbootstrap.com/
