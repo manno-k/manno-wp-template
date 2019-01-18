@@ -29,6 +29,11 @@
 ### phpmd及びphp code sniffer  
 ルールファイルをフォルダに入れてますので必要に応じて使用して下さい。  
 
+## インデント管理
+[Editorconfig](https://editorconfig.org/)を使用します。
+エディターの設定をお願いします。
+[設定参考URL](https://qiita.com/naru0504/items/82f09881abaf3f4dc171#phpstorm)
+
 ## フォルダ構成
 圧縮前のファイルは `src` に保存する。
 圧縮後のファイルは `assets`に保存する。
