@@ -1,7 +1,11 @@
+## ベーステンプレート
+
+[_s](https://underscores.me/)
+
 ##  Wordpress 必須プラグイン
 ### カスタムフィールド作成
 - [ACF PRO](https://www.advancedcustomfields.com/resources/)
- ※PROアカウントはAWESOMEで所有
+ ※PROアカウントは弊社で所有
 
 ### SEO対策用
 - [Yoast SEO](https://ja.wordpress.org/plugins/wordpress-seo/)
@@ -37,3 +41,8 @@
 ## フォルダ構成
 圧縮前のファイルは `src` に保存する。
 圧縮後のファイルは `assets`に保存する。
+
+## テンプレート作成にあたっての留意点
+
+- html,php,jsを編集する際、不要なファイルや不要なクラスは削除して頂いて構いません。
+- プラグインの追加をする場合は、追加したプラグインの詳細等をRedmineに記す事。

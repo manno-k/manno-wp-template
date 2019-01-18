@@ -11,6 +11,10 @@
 - [object-fit-images](https://github.com/bfred-it/object-fit-images)
 - [smooth scroll behavior polyfill](http://iamdustan.com/smoothscroll/)
 
+#### スクロール管理
+
+- [ScrollTrigger](https://github.com/terwanerik/ScrollTrigger)
+
 #### バグ対策
 
 wordpressの実装でjsが動かないときは下記で囲むと解消されることがあります。
