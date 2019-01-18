@@ -21,7 +21,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-<header id="masthead" class="site-header">
+<header id="masthead" class="l-header">
 	<div class="site-branding">
 		<?php
 		the_custom_logo();
@@ -41,36 +41,8 @@
 		endif; ?>
 	</div><!-- .site-branding -->
 
-	<nav class="c-nav__sp">
-		<button type="button" class="js-offcanvas-btn js-offcanvas-btn-right">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="hiraku-open-btn-line"></span>
-		</button>
-		<div class="js-offcanvas-right">
-			<div class="c-nav__sp-search">
-				<?php get_search_form(); ?>
-			</div>
-			<?php
-			$defaults = array(
-				'menu'            => '',
-				'container'       => 'div',
-				'container_class' => 'list-group',
-				'fallback_cb'     => 'wp_page_menu',
-			);
-			wp_nav_menu( $defaults );
-			?>
-		</div>
-	</nav><!-- #site-navigation -->
-	<nav class="c-nav__pc">
-		<?php
-		$defaults = array(
-			'menu'            => '',
-			'container'       => 'div',
-			'container_class' => 'list-group',
-			'fallback_cb'     => 'wp_page_menu',
-		);
-		wp_nav_menu( $defaults );
-		?>
-	</nav>
+	<?php get_template_part('template-parts/components/nav','pc'); ?>
+	<?php get_template_part('template-parts/components/nav','sp'); ?>
+
 </header><!-- #masthead -->
 
