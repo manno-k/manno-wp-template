@@ -5,8 +5,9 @@ module.exports = {
 	server: {
 		proxy: 'wordpresstemplate.lo',
 		https: false,
-		port: 3000
-	},
+		port: 3000,
+    open: 'external'
+  },
 	source: {
 		css: 'src/sass/**/*.scss',
 		js: 'src/js/**/*',
