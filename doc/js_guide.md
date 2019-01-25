@@ -24,3 +24,6 @@ jQuery(function ($){
 // ここにコードを書く
 });
 ```
+
+[slick]: http://kenwheeler.github.io/slick/
+[drawer]: https://github.com/blivesta/drawer
