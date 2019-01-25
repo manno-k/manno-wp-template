@@ -10,7 +10,6 @@
 #### gulp
 brawsersyncが起動。  
 ※使用前に`gulpfileconfig.js`要設定  
-※imgフォルダは監視対象外  
 
 ##### 起動しない場合
 以下のエラーが出た場合`npx gulp`で解消される場合があります。
