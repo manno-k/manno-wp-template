@@ -25,9 +25,16 @@ TypeError: Cannot read property 'apply' of undefined
 `src/img`内の画像ファイルを圧縮し、`assets/img`に保存します。  
 
 ## functions.php
+`inc/`以下に以下の設定ファイルが保存されています。
 
-- ACF Options Pagesの設定を追記しコメントアウトしています。
-- ACF JSONが追加されています。
+```
+inc/enqueue-scripts.php : css/scriptsの読み込み
+inc/widget-init.php : widget 設定
+inc/acf-functions.php : ACF関連
+inc/custom-posts.php : カスタム投稿の設定
+```
+
+※カスタム投稿は初期状態では`functions.php`内でコメントアウトされています。
 
 ## コーディング規約
 
