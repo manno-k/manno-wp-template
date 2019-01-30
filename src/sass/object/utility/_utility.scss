@@ -64,13 +64,13 @@ grid properties
 	@for $i from 1 through 12 {
 		.u-col-#{$i} {
 			flex-basis: 8.333333333% * $i;
-			min-width: 8.333333333% * $i;
+			max-width: 8.333333333% * $i;
 		}
 
 		.u-col-#{$size}-#{$i} {
 			@include media-breakpoint-up(#{$size}) {
 				flex-basis: 8.333333333% * $i !important;
-				min-width: 8.333333333% * $i !important;
+				max-width: 8.333333333% * $i !important;
 			}
 		}
 	}
