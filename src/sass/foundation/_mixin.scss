@@ -23,6 +23,19 @@ mixinをまとめています。
     @content;
   }
 }
+
+@mixin link_color__deco-none($color) {
+	a, a:visited, a:hover, a:focus, a:active {
+		color: $color;
+		@content;
+	}
+
+	a:hover{
+		text-decoration: none;
+	}
+}
+
+
 /*
 リンクカラー
  */

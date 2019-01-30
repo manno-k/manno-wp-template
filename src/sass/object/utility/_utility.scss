@@ -11,6 +11,7 @@ font family
 .u-font-mincho {
 	font-family: Georgia, 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN", HGS明朝E, メイリオ, Meiryo, serif;
 }
+
 /*
 margin / padding
  */
@@ -31,14 +32,29 @@ size
 span color
  */
 
-
-
 /*
 bg color
  */
 
 .u-bg-white {
 	background-color: $white;
+}
+
+/*
+text
+ */
+
+.u-white-nowrap{
+	white-space: nowrap;
+}
+
+/*
+link styles
+ */
+
+.u-link-block {
+	@extend .d-block;
+	@extend .w-100;
 }
 
 /*
@@ -92,19 +108,3 @@ icon size
 	}
 }
 
-/*
-link styles
- */
-
-// aタグにつける
-.u-text-deco-none {
-	&, &:visited, &:hover, &:focus, &:active {
-		text-decoration: none;
-
-	}
-}
-
-.u-link-block {
-	@extend .d-block;
-	@extend .w-100;
-}
