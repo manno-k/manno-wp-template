@@ -30,7 +30,7 @@ module.exports = {
 			// スライダー
 			'src/js/slick.js',
 			'src/js/slick-init.js',
-			// smooth scroll polyfill
+			// smooth scroll
 			'src/js/smoothscroll.js',
 			// object-fit polyfill
 			'src/js/ofi.js',
