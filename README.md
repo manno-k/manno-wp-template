@@ -42,9 +42,10 @@ inc/custom-posts.php : カスタム投稿の設定
 
 ```
 coding_guide.md: コーディング規約
-css.md: cssコーディング規約
-img.md: 画像ファイルの規約
-js.md: javascriptに関する規約
+css_guide.md: cssコーディング規約
+img_guide.md: 画像ファイルの規約
+js_guide.md: javascriptに関する規約
+wordpress_guide.md: wordpressに関する規約&スニペット
 ```
 
 <!-- 以下、各種リンク -->
