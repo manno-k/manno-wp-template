@@ -183,7 +183,18 @@ Utilityは、Component、ProjectレイヤーのObjectを無尽蔵に増やして
 }
 ```
 
+### RFS
+bootstrap4のrfsをtrueにしています。
+- [[CSS]レスポンシブ対応、フォントに適切なサイズをビューポートに基づいて自動計算して適用するスタイルシート](https://coliss.com/articles/build-websites/operation/css/css-responisve-font-size.html)
 
+以下のように記述することで、フォントサイズが自動計算されレスポンシブ対応になります。
+必要に応じて使用してください。
+
+```css
+h1{
+	@include font-size(3rem)
+}
+```
 
 ### mixin
 #### 特定ブラウザにスタイルをあてる
