@@ -1,7 +1,6 @@
 .DS_Store
 node_modules/
 .git
-vendor/
 composer.phar
 npm-debug.log
 behat.yml
