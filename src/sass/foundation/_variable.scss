@@ -10,6 +10,12 @@ $fs-lg: 23px;
 $fs-xl: 28px;
 $fs-xxl: 32px;
 
+// base-font
+
+$font-family-gothic: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif !default;
+$font-family-mincho: Georgia, 游明朝, "Yu Mincho", YuMincho, "Hiragino Mincho ProN", HGS明朝E, メイリオ, Meiryo, serif !default;
+$font-family-base: $font-family-gothic;
+
 // base-color
 
 //sns

@@ -247,6 +247,47 @@ IE対策用の以下のライブラリを使用する際のmixin
 }
 ```
 
+#### font-family
+##### adobe font
+`header.php`にadobe font用のスクリプトが挿入されています。
+不要な場合は削除してください。
+
+##### デフォルト設定
+`src/sass/foundation/_variable.scss`でゴシック体、明朝体のデフォルトのフォントファミリーが設定されています。
+adobe fontを使用する場合、最前列にfont-familyを追加してください。
+
+例
+```sass
+$font-family-gothic: dnp-shuei-gothic-kin-std, -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif !default;
+```
+
+`src/sass/style.scss`でデフォルトのフォントが指定されるようになっています。
+
+```css
+// デフォルトフォント設定
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	font-family: $font-family-base;
+}
+```
+
+##### utility
+クラスでfont-familyを変更できるようutilityを用意しています。
+`src/sass/object/utility/_utility.scss`
+```sass
+.u-font-gothic {
+	font-family: $font-family-gothic ;
+}
+
+.u-font-mincho {
+	font-family: $font-family-mincho;
+}
+```
+
 #### svg icon
 backgroundにいSVGを使用するためのmixinです。
 `sass/foundation/_svg.scss`に記載しています。

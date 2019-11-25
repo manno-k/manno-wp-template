@@ -47,3 +47,13 @@ Theme Sass file
 		display: none;
 	}
 }
+
+// デフォルトフォント設定
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	font-family: $font-family-base;
+}
