@@ -29,16 +29,17 @@ Theme Sass file
 @import 'foundation/variable';
 @import "foundation/mixin";
 @import "foundation/svg";
+
 // object
 @import "object/utility/utility";
 @import "object/component/js";
-@import "object/component/nav";
-@import "object/component/sidebar";
+@import "object/component/btn";
 // layout
 @import "layout/header";
 @import "layout/footer";
 // project
-@import "object/project/project";
+@import "object/project/nav";
+@import "object/project/sidebar";
 
 // safariのカラム落ち対策
 .row {
@@ -57,3 +58,12 @@ optgroup,
 textarea {
 	font-family: $font-family-base;
 }
+
+/*
+デフォルトスタイルの削除
+ */
+dl, dt, dd {
+	margin: 0;
+	padding: 0;
+}
+
