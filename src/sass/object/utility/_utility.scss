@@ -58,22 +58,6 @@ link styles
 }
 
 /*
-display none properties
- */
-@each $size in xs, sm, md, lg, xl {
-	.u-hidden-#{$size}-up {
-		@include media-breakpoint-up(#{$size}) {
-			display: none !important;
-		}
-	}
-	.u-hidden-#{$size}-down {
-		@include media-breakpoint-down(#{$size}) {
-			display: none !important;
-		}
-	}
-}
-
-/*
 grid properties
  */
 @each $size in xs, sm, md, lg, xl {

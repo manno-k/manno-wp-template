@@ -30,6 +30,7 @@ function add_files()
 	 */
 	wp_script('wordpress_template-navigation', '/assets/js/navigation.min.js');
 	wp_script('wordpress_template-skip-link-focus-fix', '/assets/js/skip-link-focus-fix.min.js');
+	wp_enqueue_script('font-awesome', 'https://kit.fontawesome.com/19b26274f9.js');
 
 	/*
 	 * JS圧縮ファイル

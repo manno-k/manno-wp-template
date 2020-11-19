@@ -3,7 +3,7 @@ gulpファイルで使用する変数やオプションを指定します。
  */
 module.exports = {
 	server: {
-		proxy: 'wordpresstemplate.lo',
+		proxy: 'mannowptemplate.lo',
 		https: false,
 		port: 3000,
     open: 'external'

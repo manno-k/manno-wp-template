@@ -25,9 +25,6 @@ script: {
 	// まとめたいファイルをまとめたい順番に指定していく。
 	// 指定していないファイルはminified.jsに圧縮されない。
 	concat: [
-		// ハンバーガーメニュー
-		'src/js/hiraku.js',
-		'src/js/hiraku-init.js',
 		// スライダー
 		'src/js/slick.js',
 		'src/js/slick-init.js',
@@ -49,6 +46,9 @@ script: {
 
 
 ## 初期インストールプラグイン
+### font awesome 6 Alpha
+- [fontawesome6 icons](https://fontawesome.com/icons)
+
 ### Bootstrap
 
 [bootstrap][]
@@ -59,8 +59,7 @@ script: {
 [slick][]
 
 ### ハンバーガーメニュー
-[hiraku](https://www.appleple.com/blog/javascript/hiraku-js.html)
-    - レイアウトによっては [drawer][]を使用しても良い。
+[drawer][]
     - 自作での実装も問題ありません。その場合はredmineに仕様を記載すること。
     
 ### polyfill
