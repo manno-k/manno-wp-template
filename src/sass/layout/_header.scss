@@ -1,8 +1,23 @@
 /*
 l-header
  */
-.l-header{
+.l-header {
+	background-color: $white;
+	@extend .py-3;
 
+	&__logo {
+		@extend .my-0;
+		img{
+			max-width: 170px;
+		}
+	}
+
+	&__left {
+		@extend .d-flex;
+		@extend .flex-wrap;
+	}
+
+	.drawer-hamburger {
+		top: 5px;
+	}
 }
-
-

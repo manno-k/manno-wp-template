@@ -3,38 +3,21 @@ mixinをまとめています。
  */
 
 @mixin ie_only {
-  @media all and (-ms-high-contrast: none) {
-    *::-ms-backdrop, & {
-      @content;
-    }
-  }
+	@media all and (-ms-high-contrast: none) {
+		*::-ms-backdrop, & {
+			@content;
+		}
+	}
 }
+
 /* stylelint-disable */
-@mixin safari_only{
-  _::-webkit-full-page-media, _:future, :root & {
-    @content;
-  }
-}
-/* stylelint-enable */
-
-@mixin link_color($color) {
-  a, a:visited, a:hover, a:focus, a:active {
-    color: $color;
-    @content;
-  }
-}
-
-@mixin link_color__deco-none($color) {
-	a, a:visited, a:hover, a:focus, a:active {
-		color: $color;
+@mixin safari_only {
+	_::-webkit-full-page-media, _:future, :root & {
 		@content;
 	}
-
-	a:hover{
-		text-decoration: none;
-	}
 }
 
+/* stylelint-enable */
 
 /*
 リンクカラー
@@ -42,10 +25,11 @@ mixinをまとめています。
 
 // a 以下に指定することを想定
 @mixin link_color($color) {
-  &, &:visited, &:hover, &:focus, &:active {
-    color: $color;
-    @content;
-  }
+	&, &:visited, &:hover, &:focus, &:active {
+		color: $color;
+		text-decoration: none;
+		@content;
+	}
 }
 
 /*
@@ -54,8 +38,8 @@ Flex box
 
 // ieでのカラム落ちを防止するためにmax-widthを指定
 @mixin flex-basis($size) {
-  max-width: $size;
-  flex-basis: $size;
+	max-width: $size;
+	flex-basis: $size;
 }
 
 /*
@@ -64,8 +48,8 @@ object-fit
 
 // object-fit-imagesの指定も行えるようにmixin化
 @mixin object-fit($properties) {
-  object-fit: $properties;
-  /* stylelint-disable */
-  font-family: 'object-fit: #{$properties};';
-  /* stylelint-enable */
+	object-fit: $properties;
+	/* stylelint-disable */
+	font-family: 'object-fit: #{$properties};';
+	/* stylelint-enable */
 }

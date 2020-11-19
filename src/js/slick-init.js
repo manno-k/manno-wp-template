@@ -3,7 +3,7 @@
 https://webdesignday.jp/inspiration/technique/jquery-js/3847/
  */
 jQuery(function ($){
-  $('.js-case').slick({
+  $('.js-slider').slick({
     slidesToShow:3,
     responsive:[
       {

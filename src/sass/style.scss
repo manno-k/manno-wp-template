@@ -14,9 +14,9 @@ _s style
  */
 @import "foundation/_s/underscores_normalize";
 /*
-hiraku
+drawer
  */
-@import "foundation/hiraku/hiraku";
+@import "foundation/drawer/drawer";
 /*
 slick
  */
@@ -67,3 +67,24 @@ dl, dt, dd {
 	padding: 0;
 }
 
+
+/*
+recaptcha
+ */
+
+.grecaptcha-badge {
+	visibility: hidden;
+}
+
+.recaptcha_policy {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	font-size: 11px !important;
+	color: #444 !important;
+}
+
+.recaptcha_policy a {
+	font-size: 11px !important;
+	color: #111 !important;
+}
