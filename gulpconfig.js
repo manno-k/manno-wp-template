@@ -3,7 +3,7 @@ gulpファイルで使用する変数やオプションを指定します。
  */
 module.exports = {
 	server: {
-		proxy: 'mannowptemplate.lo',
+		proxy: 'khgarden.lo',
 		https: false,
 		port: 3000,
     open: 'external'
