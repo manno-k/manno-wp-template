@@ -39,6 +39,8 @@ module.exports = {
 			// scroll監視プラグイン
 			// 'src/js/ScrollTrigger.js',
 			// 'src/js/ScrollTrigger-init.js',
+      // scroll-hint
+      // 'src/js/scroll-hint.js',
       // bootstrap
       'src/js/popper.js',
       'src/js/bootstrap.js',

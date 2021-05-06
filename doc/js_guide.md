@@ -46,8 +46,6 @@ script: {
 
 
 ## 初期インストールプラグイン
-### font awesome 6 Alpha
-- [fontawesome6 icons](https://fontawesome.com/icons)
 
 ### Bootstrap
 
@@ -65,6 +63,10 @@ script: {
 ### polyfill
 - [object-fit-images](https://github.com/bfred-it/object-fit-images)
 - [smooth scroll behavior polyfill](http://iamdustan.com/smoothscroll/)
+
+## スクロールヒント
+
+- [ScrollHint](https://appleple.github.io/scroll-hint)
 
 ### スクロール管理
 
