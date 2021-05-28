@@ -3,7 +3,7 @@ gulpファイルで使用する変数やオプションを指定します。
  */
 module.exports = {
 	server: {
-		proxy: 'khgarden.lo',
+		proxy: 'wptemplate.lo',
 		https: false,
 		port: 3000,
     open: 'external'
@@ -25,11 +25,11 @@ module.exports = {
 		// 指定していないファイルはminified.jsに圧縮されない。
 		concat: [
 			// ハンバーガーメニュー
-      'src/js/iscroll.js',
-      'src/js/drawer.js',
+      'node_modules/iscroll/build/iscroll.js',
+      'node_modules/jquery-drawer/dist/js/drawer.js',
       'src/js/drawer-init.js',
 			// スライダー
-			'src/js/slick.js',
+			'node_modules/slick-carousel/slick/slick.js',
 			'src/js/slick-init.js',
 			// smooth scroll
 			'src/js/smoothscroll.js',
@@ -37,13 +37,14 @@ module.exports = {
 			'src/js/ofi.js',
 			'src/js/ofi-init.js',
 			// scroll監視プラグイン
-			// 'src/js/ScrollTrigger.js',
-			// 'src/js/ScrollTrigger-init.js',
+      // https://terwanerik.github.io/ScrollTrigger/
+			'src/js/ScrollTrigger.js',
+			'src/js/ScrollTrigger-init.js',
       // scroll-hint
       // 'src/js/scroll-hint.js',
       // bootstrap
-      'src/js/popper.js',
-      'src/js/bootstrap.js',
+      'node_modules/@popperjs/core/dist/umd/popper.js',
+      'node_modules/bootstrap/dist/js/bootstrap.js',
 
 		]
 	},

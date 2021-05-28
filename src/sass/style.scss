@@ -6,28 +6,38 @@ Version: 1.0.0
 /*
 Bootstrap
  */
-@import "foundation/bootstrap/bootstrap";
-@import "foundation/bootstrap/bootstrap-grid";
-@import "foundation/bootstrap/bootstrap-reboot";
-@import "foundation/bootstrap/bootstrap-utilities";
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap/scss/bootstrap-grid";
+@import "node_modules/bootstrap/scss/bootstrap-reboot";
 /*
 _s style
  */
 @import "foundation/_s/underscores_normalize";
+
 /*
 drawer
+https://www.drawerjs.com/
  */
-@import "foundation/drawer/drawer";
+@import "node_modules/jquery-drawer/scss/drawer.scss";
+
+/*
+animate css
+https://animate.style/
+ */
+
+@import "node_modules/animate.css/animate.css";
+
 /*
 scroll-hint
+https://appleple.github.io/scroll-hint/
  */
 //@import "foundation/scroll-hint/scroll-hint";
 
 /*
 slick
  */
-@import "foundation/slick/slick";
-@import "foundation/slick/slick-theme";
+@import "node_modules/slick-carousel/slick/slick.scss";
+@import "node_modules/slick-carousel/slick/slick-theme.scss";
 /*
 Theme Sass file
  */
@@ -94,4 +104,9 @@ recaptcha
 .recaptcha_policy a {
 	font-size: 11px !important;
 	color: #111 !important;
+}
+
+.site-main{
+	height: 2000px;
+	background-color: red;
 }

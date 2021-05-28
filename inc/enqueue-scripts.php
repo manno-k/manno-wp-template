@@ -16,7 +16,7 @@ function add_files()
 
 	function wp_script($script_name, $file_path, $bool = true)
 	{
-		wp_enqueue_script($script_name, TEMPLATE_DIRE . $file_path, array(),
+		wp_enqueue_script($script_name, TEMPLATE_DIRE . $file_path, array( 'jquery' ),
 			date('YmdGis', filemtime(TEMPLATE_PATH . $file_path)), $bool);
 	}
 
@@ -31,6 +31,8 @@ function add_files()
 	wp_script('wordpress_template-navigation', '/assets/js/navigation.min.js');
 	wp_script('wordpress_template-skip-link-focus-fix', '/assets/js/skip-link-focus-fix.min.js');
 	wp_enqueue_script('font-awesome', 'https://kit.fontawesome.com/19b26274f9.js');
+	wp_enqueue_script('gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js');
+	wp_enqueue_script('scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js');
 
 	/*
 	 * JS圧縮ファイル

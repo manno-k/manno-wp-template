@@ -1,5 +1,4 @@
-document.addEventListener('DOMContentLoaded', function(){
-	var trigger = new ScrollTrigger({
-		once: true
-	}, document.body, window);
+const trigger = new ScrollTrigger.default();
+jQuery(function ($){
+  trigger.add('[data-trigger]')
 });

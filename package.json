@@ -4,9 +4,9 @@
   "description": "gulp",
   "main": "gulpfile.js",
   "scripts": {
-    "start": "gulp",
-    "build": "gulp build",
-    "test": "bash tests/test.sh"
+    "start": "npx gulp",
+    "image": "npx gulp image",
+    "script": "npx gulp script"
   },
   "repository": {
     "type": "git",
@@ -15,10 +15,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
     "autoprefixer": "^9.3.1",
     "browser-sync": "^2.26.3",
     "caniuse-db": "^1.0.30000906",
     "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
     "gulp-changed": "^3.2.0",
     "gulp-cheerio": "^0.6.2",
     "gulp-combine-mq": "^0.4.0",
@@ -53,6 +56,13 @@
     "stylelint-scss": "^3.4.0"
   },
   "dependencies": {
-    "bower": "^1.7.9"
+    "@popperjs/core": "^2.9.2",
+    "animate.css": "^4.1.1",
+    "bootstrap": "^4.6.0",
+    "bower": "^1.7.9",
+    "iscroll": "^5.2.0",
+    "jquery": "^2.2.4",
+    "jquery-drawer": "^3.2.2",
+    "slick-carousel": "^1.8.1"
   }
 }

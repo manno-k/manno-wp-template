@@ -1,8 +1,7 @@
 //---------------------------------------------------------------------------
 // ファイル読み込み
 //---------------------------------------------------------------------------
-var
-  gulp = require('gulp'),
+gulp = require('gulp'),
   gulpLoadPlugins = require('gulp-load-plugins'),
   $ = gulpLoadPlugins(),
   // Configファイルを読みます。
@@ -17,8 +16,8 @@ var
   syntax_scss = require('postcss-scss'),
   reporter = require('postcss-reporter'),
   sourcemaps = require('gulp-sourcemaps'),
-  changed = require("gulp-changed");
-;
+  changed = require("gulp-changed"),
+  babel = require('gulp-babel');
 
 
 //---------------------------------------------------------------------------
@@ -76,6 +75,11 @@ gulp.task('concat', function () {
   return gulp
   .src(config.script.concat)
   .pipe($.plumber())
+  .pipe(babel(
+    {
+      presets: ['@babel/env']
+    }
+  ))
   .pipe($.concat(config.script.filename))
   .pipe($.uglify())
   .pipe(

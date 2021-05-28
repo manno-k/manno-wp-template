@@ -7,9 +7,9 @@
 	@extend .d-lg-block;
 
 	ul {
-		@extend .ms-0;
+		@extend .pl-0;
 		@extend .mb-0;
-		@extend .ps-0;
+		@extend .pl-0;
 		@extend .list-unstyled;
 		@extend .d-flex;
 		@extend .flex-wrap;
@@ -34,9 +34,9 @@
 		@extend .py-3;
 
 		ul {
-			@extend .ms-0;
+			@extend .pl-0;
 			@extend .mb-0;
-			@extend .ps-0;
+			@extend .pl-0;
 			@extend .list-unstyled;
 
 			li {
