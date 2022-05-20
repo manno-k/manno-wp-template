@@ -23,8 +23,8 @@ jobs:
           php-version: '7.4'
           tools: composer:v2
 
-      - name: Validate composer.json and composer.lock
-        run: composer validate --no-check-all
+#      - name: Validate composer.json and composer.lock
+#        run: composer validate --strict
 
       - name: Cache Composer packages
         id: composer-cache
