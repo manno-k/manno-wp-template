@@ -2,7 +2,7 @@ name: PHP Composer
 
 on:
   push:
-    branches: [ master ]
+    branches: [ develop ]
 #  pull_request:
 #    branches: [ master ]
 
@@ -52,4 +52,4 @@ jobs:
       # -z 圧縮転送
       # -e ssh指定
       - name: Deploy
-        run: rsync -ahvz -e "ssh -i ~/.ssh/id_rsa.pub -p ${{ secrets.SSH_PORT }} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/home/c7537256/public_html/test/ --include-from=".github/rsync_include.txt" --exclude-from=".github/rsync_exclude.txt"
+        run: rsync -ahvz -e --delete "ssh -i ~/.ssh/id_rsa.pub -p ${{ secrets.SSH_PORT }} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH_DEV }} --include-from=".github/rsync_include.txt" --exclude-from=".github/rsync_exclude.txt"
