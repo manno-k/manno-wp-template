@@ -36,9 +36,19 @@ jobs:
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
+
       # 秘密鍵を設置
       - name: ssh key generate
         run: |
           mkdir -p ~/.ssh/
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
+
+      # ssh rsync実行
+      # -a コピー元のディレクトリを再帰的にオーナー・グループ・パーミッション・タイムスタンプをそのままコピーします。
+      # -h でファイルサイズの視認性をよくする。
+      # -v 詳細を出力する。
+      # -z 圧縮転送
+      # -e ssh指定
+      - name: Deploy
+        run: rsync -ahvz -e "ssh -i ~/.ssh/id_rsa -p ${{ secrets.SSH_PORT }} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/home/c7537256/public_html/test/ --include-from=".github/rsync_include.txt" --exclude-from=".github/rsync_exclude.txt"
