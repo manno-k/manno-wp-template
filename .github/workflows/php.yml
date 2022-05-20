@@ -36,7 +36,6 @@ jobs:
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
-
       # 秘密鍵を設置
       - name: ssh key generate
         run: |
