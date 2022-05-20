@@ -36,3 +36,10 @@ jobs:
 
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
+
+      # 秘密鍵を設置
+      - name: ssh key generate
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
