@@ -16,7 +16,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
+      # このPHPアプリのPHP Versionの指定とcomposerの指定を行う
+      - name: Setup PHP with composer v2
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.4'
+          tools: composer:v2
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
 
