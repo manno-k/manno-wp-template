@@ -1,0 +1,6 @@
+/src/
+/doc/
+/.circleci/
+/.github/
+gulpconfig.js
+gulpfile.js
