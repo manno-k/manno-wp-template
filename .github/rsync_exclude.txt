@@ -4,3 +4,13 @@
 /.github/
 gulpconfig.js
 gulpfile.js
+.htaccess
+.editorconfig
+.gitignore
+package.json
+package-lock.json
+phpcs.xml.dist
+codesniffer.ruleset.xml
+phpmd.ruleset.xml
+.stylelintrc.json
+composer.json
