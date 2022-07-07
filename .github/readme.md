@@ -5,7 +5,7 @@
 以下をレポジトリの `setting >Secrets > Actions`に登録する
 
 - SSH_PRIVATE_KEY:サーバーの秘密鍵
-- SSH_PORT:ポート番号
+- SSH_PORT:ポート番号 ※さくらは22
 - SSH_USERNAME:ユーザー名
 - SSH_HOST:ホスト名
 - SSH_PATH_MASTER: masterブランチにpushされた時のコピー先のフォルダ
