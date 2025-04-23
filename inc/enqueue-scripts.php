@@ -24,6 +24,7 @@
 		 * cssにタイムスタンプを付与する。
 		 */
 		wp_css('wordpress_template-style', '/style.css');
+		wp_css('wordpress_template-compiled', '/assets/css/style.min.css');
 
 		/*
 		 *  jsにタイムスタンプを付与する。

@@ -2,6 +2,46 @@
 mixinをまとめています。
  */
 
+// ブレークポイントの定義
+$breakpoints: (
+	'sm': 576px,
+	'md': 768px,
+	'lg': 992px,
+	'xl': 1200px,
+	'xxl': 1400px
+) !default;
+
+// メディアクエリのmixin
+@mixin media-breakpoint-up($breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+			@content;
+		}
+	} @else {
+		@warn "ブレークポイント '#{$breakpoint}' は定義されていません。";
+	}
+}
+
+@mixin media-breakpoint-down($breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media screen and (max-width: map-get($breakpoints, $breakpoint) - 0.02px) {
+			@content;
+		}
+	} @else {
+		@warn "ブレークポイント '#{$breakpoint}' は定義されていません。";
+	}
+}
+
+@mixin media-breakpoint-between($lower, $upper) {
+	@if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+		@media screen and (min-width: map-get($breakpoints, $lower)) and (max-width: map-get($breakpoints, $upper) - 0.02px) {
+			@content;
+		}
+	} @else {
+		@warn "ブレークポイント '#{$lower}' または '#{$upper}' は定義されていません。";
+	}
+}
+
 @mixin ie_only {
 	@media all and (-ms-high-contrast: none) {
 		*::-ms-backdrop, & {

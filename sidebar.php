@@ -1,15 +1,15 @@
 <?php
-/**
- * The sidebar containing the main widget area
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package wordpress_template
- */
+	/**
+	 * The sidebar containing the main widget area
+	 *
+	 * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+	 *
+	 * @package wordpress_template
+	 */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-	return;
-}
+	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+		return;
+	}
 ?>
 
 <aside id="secondary" class="widget-area">

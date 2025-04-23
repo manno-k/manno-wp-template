@@ -3,61 +3,47 @@ Theme Name: wordpress-template
 Description: Description
 Version: 1.0.0
 */
-/*
-Bootstrap
- */
-@import "node_modules/bootstrap/scss/bootstrap";
-@import "node_modules/bootstrap/scss/bootstrap-grid";
-@import "node_modules/bootstrap/scss/bootstrap-reboot";
+
+
 /*
 _s style
  */
-@import "foundation/_s/underscores_normalize";
+@use "foundation/_s/underscores_normalize";
 
 /*
 drawer
 https://www.drawerjs.com/
  */
-@import "node_modules/jquery-drawer/scss/drawer.scss";
+@use "../../node_modules/jquery-drawer/scss/drawer.scss";
 
 /*
 animate css
 https://animate.style/
  */
-
-@import "node_modules/animate.css/animate.css";
+@use "../../node_modules/animate.css/animate.css";
 
 /*
 scroll-hint
 https://appleple.github.io/scroll-hint/
  */
-//@import "foundation/scroll-hint/scroll-hint";
+//@use "foundation/scroll-hint/scroll-hint";
 
 /*
 slick
  */
-@import "node_modules/slick-carousel/slick/slick.scss";
-@import "node_modules/slick-carousel/slick/slick-theme.scss";
+@use "../../node_modules/slick-carousel/slick/slick.scss";
+@use "../../node_modules/slick-carousel/slick/slick-theme.scss";
+
 /*
-Theme Sass file
+variable
  */
-// foundation
-@import 'foundation/variable';
-@import "foundation/mixin";
-@import "foundation/svg";
+@use "foundation/_variable" as *;
+@use "foundation/_mixin" as *;
+@use "foundation/_svg" as *;
 
-// object
-@import "object/utility/utility";
-@import "object/component/js";
-@import "object/component/btn";
-@import "object/component/menu";
-// layout
-@import "layout/header";
-@import "layout/footer";
-// project
-@import "object/project/nav";
-@import "object/project/sidebar";
-
+/*
+base
+ */
 // safariのカラム落ち対策
 .row {
 	&::before,
@@ -84,7 +70,6 @@ dl, dt, dd {
 	padding: 0;
 }
 
-
 /*
 recaptcha
  */
@@ -107,6 +92,10 @@ recaptcha
 }
 
 .site-main{
-	height: 2000px;
-	background-color: red;
+	background-color: black;
+}
+
+.site-main{
+	background: #000;
+	height: 3000px;
 }

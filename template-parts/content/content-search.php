@@ -15,10 +15,15 @@
 
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php wordpress_template_posted_on(); ?>
+			<?php
+			wordpress_template_posted_on();
+			wordpress_template_posted_by();
+			?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
+
+	<?php wordpress_template_post_thumbnail(); ?>
 
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>

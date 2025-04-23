@@ -3,47 +3,47 @@
 }
 
 .c-menu__pc {
-	@extend .d-none;
-	@extend .d-lg-block;
+	display: none;
+
+	@media screen and (min-width: 992px) {
+		display: block;
+	}
 
 	ul {
-		@extend .pl-0;
-		@extend .mb-0;
-		@extend .pl-0;
-		@extend .list-unstyled;
-		@extend .d-flex;
-		@extend .flex-wrap;
-		@extend .justify-content-between;
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
 
 		a {
 			@include link_color($black);
 		}
 	}
-
 }
 
 .c-menu__sp {
 	&-logo {
 		max-width: 180px;
-		@extend .mb-5;
+		margin-bottom: 3rem;
 	}
 
 	&-inner {
 		background-color: $black;
-		@extend .text-center;
-		@extend .py-3;
+		text-align: center;
+		padding: 1rem 0;
 
 		ul {
-			@extend .pl-0;
-			@extend .mb-0;
-			@extend .pl-0;
-			@extend .list-unstyled;
+			padding: 0;
+			margin: 0;
+			list-style: none;
 
 			li {
-				@extend .mb-5;
+				margin-bottom: 3rem;
 
 				span {
-					@extend .d-block;
+					display: block;
 				}
 			}
 

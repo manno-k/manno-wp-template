@@ -2,8 +2,7 @@
   "plugins": "stylelint-scss",
   "ignoreFiles": [
     "src/sass/foundation/bootstrap/**/*.scss",
-    "src/sass/foundation/slick/*.scss",
-    "src/sass/foundation/hiraku/*.scss"
+    "src/sass/foundation/slick/*.scss"
   ],
   "extends": "stylelint-config-recommended-scss",
   "rules": {

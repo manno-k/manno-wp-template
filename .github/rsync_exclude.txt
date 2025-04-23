@@ -3,7 +3,7 @@
 /.circleci/
 /.github/
 gulpconfig.js
-gulpfile.js
+gulpfile.mjs
 .htaccess
 .editorconfig
 .gitignore

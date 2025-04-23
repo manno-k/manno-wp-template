@@ -1,7 +1,7 @@
 /*
 gulpファイルで使用する変数やオプションを指定します。
  */
-module.exports = {
+export default {
 	server: {
 		proxy: 'wptemplate.lo',
 		https: false,
@@ -14,7 +14,7 @@ module.exports = {
 		img: 'src/img/**/*'
 	},
 	build: {
-		css: './',
+		css: './assets/css/',
 		js: 'assets/js/',
 		img: 'assets/img/'
 	},
