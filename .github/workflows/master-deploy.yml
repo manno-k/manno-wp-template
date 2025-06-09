@@ -16,33 +16,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      # このPHPアプリのPHP Versionの指定とcomposerの指定を行う
-      - name: Setup PHP with composer v2
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '7.4'
-          tools: composer:v2
-
-#      - name: Validate composer.json and composer.lock
-#        run: composer validate --strict
-
-      - name: Cache Composer packages
-        id: composer-cache
-        uses: actions/cache@v3
-        with:
-          path: vendor
-          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-php-
-
-      - name: Install dependencies
-        run: composer install --prefer-dist --no-progress
-
       # 秘密鍵を設置
       - name: ssh key generate
         run: |
           mkdir -p ~/.ssh/
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa.pub
+          echo "${{ secrets.SSH_PRIVATE_KEY_MASTER }}" > ~/.ssh/id_rsa.pub
           chmod 600 ~/.ssh/id_rsa.pub
 
       # ssh rsync実行
@@ -52,5 +30,5 @@ jobs:
       # -z 圧縮転送
       # -e ssh指定
       - name: Deploy
-        run: rsync -ahvz -e "ssh -i ~/.ssh/id_rsa.pub -p ${{ secrets.SSH_PORT }} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" ./ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_PATH_MASTER }} --include-from=".github/rsync_include.txt" --exclude-from=".github/rsync_exclude.txt"
+        run: rsync -ahvz -e "ssh -i ~/.ssh/id_rsa.pub -p ${{ secrets.SSH_PORT_MASTER }} -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" ./ ${{ secrets.SSH_USERNAME_MASTER }}@${{ secrets.SSH_HOST_MASTER }}:${{ secrets.SSH_PATH_MASTER }}
 

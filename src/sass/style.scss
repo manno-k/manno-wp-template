@@ -1,5 +1,5 @@
 /*!
-Theme Name: wordpress-template
+Theme Name: medifare_new
 Description: Description
 Version: 1.0.0
 */
@@ -42,6 +42,24 @@ variable
 @use "foundation/_svg" as *;
 
 /*
+layout
+ */
+@use "layout/_header" as *;
+@use "layout/_footer" as *;
+
+/*
+component
+ */
+
+@use "object/component/_menu" as *;
+
+/*
+project
+ */
+
+@use "object/project/_index" as *;
+
+/*
 base
  */
 // safariのカラム落ち対策
@@ -69,6 +87,9 @@ dl, dt, dd {
 	margin: 0;
 	padding: 0;
 }
+.page, .post, .widget{
+	margin-bottom: 0;
+}
 
 /*
 recaptcha
@@ -89,13 +110,4 @@ recaptcha
 .recaptcha_policy a {
 	font-size: 11px !important;
 	color: #111 !important;
-}
-
-.site-main{
-	background-color: black;
-}
-
-.site-main{
-	background: #000;
-	height: 3000px;
 }
